@@ -19,10 +19,13 @@
     <nav class="uk-navbar-container" uk-navbar>
         <div class="uk-navbar-left">
             <ul class="uk-navbar-nav">
-                <li class="uk-active"><a href="{{ path('home') }}">Home</a></li>
+            <li class="uk-active"><a href="{{ path('home') }}">Home</a></li>
+            {% if is_granted('ROLE_USER') %}
+                <li class="uk-parent"><a href="{{ path('admin') }}">Dashboard</a></li>
+            {% else %}                
                 <li class="uk-parent"><a href="{{ path('login') }}">Login</a></li>
                 <li class="uk-parent"><a href="{{ path('app_register') }}">Register</a></li>
-                <li><a href=""></a></li>
+            {% endif %}                
             </ul>
         </div>
     </nav>

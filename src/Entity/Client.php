@@ -62,6 +62,16 @@ class Client
      */
     private $organization;
 
+    /**
+     * @ORM\Column(type="string", length=50)
+     */
+    private $phone;
+
+    /**
+     * @ORM\Column(type="string", length=100, nullable=true)
+     */
+    private $email;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -171,6 +181,30 @@ class Client
     public function setOrganization(?Organization $organization): self
     {
         $this->organization = $organization;
+
+        return $this;
+    }
+
+    public function getPhone(): ?string
+    {
+        return $this->phone;
+    }
+
+    public function setPhone(string $phone): self
+    {
+        $this->phone = $phone;
+
+        return $this;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(?string $email): self
+    {
+        $this->email = $email;
 
         return $this;
     }

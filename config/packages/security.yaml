@@ -25,6 +25,7 @@ security:
                 # "login" is the route
                 login_path: login
                 check_path: login
+                default_target_path: admin
                 enable_csrf: true
 
             login_throttling:
