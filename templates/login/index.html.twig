@@ -1,0 +1,37 @@
+{% extends 'login/layout.html.twig' %}
+
+{% block title %}TD Client Database
+{% endblock %}
+
+{% block login %}
+	{% if error %}
+		<div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+	{% endif %}
+
+	<h3 class="uk-card-title uk-text-center">Please Login</h3>
+	<form action="{{ path('login') }}" method="post">
+		<div class="uk-margin">
+			<div class="uk-inline uk-width-1-1">
+				<span class="uk-form-icon" uk-icon="icon: mail"></span>
+				<input class="uk-input uk-form-large" type="text" name="_username" value="{{ last_username }}"/>
+			</div>
+		</div>
+		<div class="uk-margin">
+			<div class="uk-inline uk-width-1-1">
+				<span class="uk-form-icon" uk-icon="icon: lock"></span>
+				<input class="uk-input uk-form-large" type="password" name="_password">
+			</div>
+		</div>
+		<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+		<div class="uk-margin">
+			<button class="uk-button uk-button-primary uk-button-large uk-width-1-1" type="submit">Login</button>
+		</div>
+		<div class="uk-text-small uk-text-center">
+			Not registered?
+			<a href="{{ path('app_register')}}">Create an account</a>
+		</div>
+	</form>
+
+{% endblock %}
+

@@ -1,1 +1,13 @@
 {% extends "base.html.twig" %}
+
+{% block body %}
+      <div class="uk-grid-margin uk-grid uk-grid-stack" uk-grid="uk-grid">
+        <div class="uk-width-1-1@m">
+          <div class="uk-margin uk-width-large uk-margin-auto uk-card uk-card-default uk-card-body uk-box-shadow-large">
+            {% block login %}{% endblock %}
+            {% block register %}{% endblock %}
+          </div>
+        </div>
+{% endblock %}
+
+{% block landing %}{% endblock %}

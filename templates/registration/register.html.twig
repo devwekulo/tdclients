@@ -1,17 +1,43 @@
-{% extends 'base.html.twig' %}
+{% extends 'registration/layout.html.twig' %}
 
 {% block title %}Register{% endblock %}
 
-{% block body %}
-    <h1>Register</h1>
+{% block register %}
+    <h3 class="uk-card-title uk-text-center">Register</h3>
 
     {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
 
-        <button type="submit" class="btn">Register</button>
+    <div class="uk-margin">
+        <div class="uk-inline uk-width-1-1">
+            {{ form_errors(registrationForm) }}
+        </div>
+    </div>
+    
+    <div class="uk-margin">
+        <div class="uk-inline uk-width-1-1">
+            <span class="uk-form-icon" uk-icon="icon: mail"></span>
+            {{ form_widget(registrationForm.email, {'attr': {'class': 'uk-input uk-form-large'}}) }}
+        </div>
+    </div>     
+
+<div class="uk-margin">
+			<div class="uk-inline uk-width-1-1">
+                <span class="uk-form-icon" uk-icon="icon: lock"></span>
+				{{ form_widget(registrationForm.plainPassword, {'attr': {'class': 'uk-input uk-form-large'}}) }}
+			</div>
+		</div>
+
+        <div class="uk-margin">
+			<div class="uk-inline uk-width-1-1">
+				{{ form_row(registrationForm.agreeTerms) }}
+			</div>
+		</div>
+
+        <div class="uk-margin">
+			<button class="uk-button uk-button-primary uk-button-large uk-width-1-1" type="submit">Register</button>
+		</div>
+       
     {{ form_end(registrationForm) }}
+
+
 {% endblock %}
