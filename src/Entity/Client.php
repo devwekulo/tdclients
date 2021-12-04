@@ -57,6 +57,11 @@ class Client
      */
     private $organisation;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Organization::class, inversedBy="clients")
+     */
+    private $organization;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -154,6 +159,18 @@ class Client
     public function setOrganisation(?string $organisation): self
     {
         $this->organisation = $organisation;
+
+        return $this;
+    }
+
+    public function getOrganization(): ?Organization
+    {
+        return $this->organization;
+    }
+
+    public function setOrganization(?Organization $organization): self
+    {
+        $this->organization = $organization;
 
         return $this;
     }
